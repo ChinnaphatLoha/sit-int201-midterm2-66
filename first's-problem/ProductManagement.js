@@ -14,7 +14,7 @@ const productManagement = () => {
    * @param {String} category
    * @returns {{id: Number, name: String, category: String, price: Number}[]}
    */
-  const findProductByCategory = (products, category) => {
+  const findProductsByCategory = (products, category) => {
     return products.filter((product) => product.category === category);
   };
 
@@ -22,13 +22,11 @@ const productManagement = () => {
    * @param {{id: Number, name: String, category: String, price: Number}} products
    * @returns {number}
    */
-  const sortedByCategory = (products) => {
+  const sortByCategory = (products) => {
     return products.sort((a, b) => {
       const aCate = a.category.toLowerCase(),
         bCate = b.category.toLowerCase();
-      if (aCate < bCate) return -1;
-      if (aCate > bCate) return 1;
-      return 0;
+      return aCate.localeCompare(bCate);
     });
   };
 
@@ -45,8 +43,8 @@ const productManagement = () => {
 
   return {
     addProduct,
-    findProductByCategory,
-    sortedByCategory,
+    findProductsByCategory,
+    sortByCategory,
     applyDiscount,
   };
 };

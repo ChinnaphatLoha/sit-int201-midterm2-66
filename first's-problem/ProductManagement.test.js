@@ -25,7 +25,7 @@ describe('Product Management', () => {
   });
 
   test('Should find products by category', () => {
-    const foundProducts = productManager.findProductByCategory(
+    const foundProducts = productManager.findProductsByCategory(
       products,
       'Electronics'
     );
@@ -34,7 +34,7 @@ describe('Product Management', () => {
   });
 
   test('Should sort products by category', () => {
-    const sortedProducts = productManager.sortedByCategory(products);
+    const sortedProducts = productManager.sortByCategory(products);
     expect(sortedProducts[0].category).toBe('Clothing');
     expect(sortedProducts[1].category).toBe('Electronics');
     expect(sortedProducts[2].category).toBe('Electronics');
